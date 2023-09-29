@@ -99,7 +99,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_enable_logs"></a> [enable\_logs](#input\_enable\_logs) | Enable CloudWatch Logs for Lambda Function. | `bool` | `false` | no |
+| <a name="input_enable_logs"></a> [enable\_logs](#input\_enable\_logs) | Enable CloudWatch Logs for the Lambda Function. | `bool` | `false` | no |
 | <a name="input_function_description"></a> [function\_description](#input\_function\_description) | Description of what your Lambda Function does. | `string` | n/a | yes |
 | <a name="input_function_ephemeral_storage"></a> [function\_ephemeral\_storage](#input\_function\_ephemeral\_storage) | Size of the /tmp directory in MB available to your Lambda Function. | `number` | `512` | no |
 | <a name="input_function_handler"></a> [function\_handler](#input\_function\_handler) | Function entrypoint in your code. | `string` | n/a | yes |
