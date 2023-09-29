@@ -43,7 +43,7 @@ variable "sqs_batch_size" {
 
 variable "enable_logs" {
   type        = bool
-  description = "Enable CloudWatch Logs for Lambda Function."
+  description = "Enable CloudWatch Logs for the Lambda Function."
   default     = false
 }
 
