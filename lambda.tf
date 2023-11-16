@@ -7,6 +7,7 @@ resource "aws_lambda_function" "lambda" {
   package_type  = var.lambda_package_type
   filename      = "${path.module}/placeholders/${local.placeholder}"
   memory_size   = var.function_memory
+  timeout       = var.function_timeout_seconds
 
   ephemeral_storage {
     size = var.function_ephemeral_storage
