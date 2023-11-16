@@ -4,7 +4,6 @@
 !include AWSPuml/AWSCommon.puml
 !include AWSPuml/AWSSimplified.puml
 !include AWSPuml/Groups/all.puml
-!include AWSPuml/SecurityIdentityCompliance/all.puml
 !include AWSPuml/SecurityIdentityCompliance/IdentityAccessManagementRole.puml
 !include AWSPuml/SecurityIdentityCompliance/IdentityAccessManagementPermissions.puml
 !include AWSPuml/Compute/Lambda.puml
