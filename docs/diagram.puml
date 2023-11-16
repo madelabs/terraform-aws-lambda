@@ -1,0 +1,39 @@
+@startuml terraform-aws-lambda
+!include <logos/github-icon>
+!define AWSPuml https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/v15.0/dist
+!include AWSPuml/AWSCommon.puml
+!include AWSPuml/AWSSimplified.puml
+!include AWSPuml/Groups/all.puml
+!include AWSPuml/SecurityIdentityCompliance/all.puml
+!include AWSPuml/SecurityIdentityCompliance/IdentityAccessManagementRole.puml
+!include AWSPuml/SecurityIdentityCompliance/IdentityAccessManagementPermissions.puml
+!include AWSPuml/Compute/Lambda.puml
+!include AWSPuml/ManagementGovernance/CloudWatchLogs.puml
+!include AWSPuml/ApplicationIntegration/SimpleQueueService.puml
+
+AWSCloudGroup(cloud, "AWS")  {
+  GenericGroup(IAM, "IAM") {
+    IdentityAccessManagementRole(lambda_role,"Lambda role","")
+    IdentityAccessManagementPermissions(execution_policy,"Execution Policy","")
+    IdentityAccessManagementPermissions(sqs_policy,"SQS Policy","")
+    IdentityAccessManagementPermissions(vpc_policy,"VPC Policy","")
+    IdentityAccessManagementPermissions(additional_policy,"Additional Policies","")
+  }
+
+  GenericGroup(Lambda, "Lambda") {
+    Lambda(lambda,"Function","","")
+  }
+  GenericGroup(CloudWatch, "CloudWatch") {
+    CloudWatchLogs(cloudwatch,"Log Group","","")
+  }
+  GenericGroup(SQS, "SQS") {
+    SimpleQueueService(SQS_att,"Lambda Queue Attachment","","")
+  }
+
+  execution_policy --> lambda_role
+  sqs_policy --> lambda_role
+  vpc_policy --> lambda_role
+  additional_policy --> lambda_role
+  lambda_role -> lambda
+}
+@enduml
