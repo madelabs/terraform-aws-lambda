@@ -35,6 +35,12 @@ variable "subscribing_queue_arn" {
   default     = ""
 }
 
+variable "subscribe_to_queue" {
+  type        = bool
+  description = "Whether the lambda will subscribe to a queue or not."
+  default     = false
+}
+
 variable "sqs_batch_size" {
   type        = number
   description = "In case the lambda subscribes to a queue, refers to the number of messages that Lambda retrieves and processes from an SQS queue in a single invocation. This parameter allows you to control how many messages are processed in a single Lambda function execution"
@@ -86,4 +92,16 @@ variable "function_memory" {
   type        = number
   description = "Amount of memory in MB your Lambda Function can use at runtime."
   default     = 128
+}
+
+variable "function_timeout_seconds" {
+  type        = number
+  description = "Amount of time your Lambda Function has to run in seconds"
+  default     = 10
+}
+
+variable "extra_permissions_policy_arns" {
+  type        = set(string)
+  description = "List of policy arns you need to add the function role. Should be used for preexisting policies, not managed by this module."
+  default     = []
 }
