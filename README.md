@@ -120,10 +120,14 @@ No modules.
 | <a name="input_permissions_boundary"></a> [permissions\_boundary](#input\_permissions\_boundary) | ARN of the policy that is used to set the permissions boundary for the role. | `string` | `""` | no |
 | <a name="input_sqs_batch_size"></a> [sqs\_batch\_size](#input\_sqs\_batch\_size) | In case the lambda subscribes to a queue, refers to the number of messages that Lambda retrieves and processes from an SQS queue in a single invocation. This parameter allows you to control how many messages are processed in a single Lambda function execution | `number` | `1` | no |
 | <a name="input_subscribe_to_queue"></a> [subscribe\_to\_queue](#input\_subscribe\_to\_queue) | Whether the lambda will subscribe to a queue or not. | `bool` | `false` | no |
-| <a name="input_subscribing_queue_arn"></a> [subscribing\_queue\_arn](#input\_subscribing\_queue\_arn) | If the lambda subscribes to a queue, use this variable to inform the SQS object arn | `string` | `""` | no |
+| <a name="input_subscribing_queue_arn"></a> [subscribing\_queue\_arn](#input\_subscribing\_queue\_arn) | If the lambda subscribes to a queue, use this variable to inform the SQS object arn | `string` | `null` | no |
 | <a name="input_vpc_config"></a> [vpc\_config](#input\_vpc\_config) | VPC configuration for your Lambda Function. | <pre>object({<br>    security_group_ids = list(string)<br>    subnet_ids         = list(string)<br>  })</pre> | `null` | no |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_lambda_arn"></a> [lambda\_arn](#output\_lambda\_arn) | n/a |
+| <a name="output_lambda_role_arn"></a> [lambda\_role\_arn](#output\_lambda\_role\_arn) | n/a |
+| <a name="output_lambda_role_name"></a> [lambda\_role\_name](#output\_lambda\_role\_name) | n/a |
 <!-- END_TF_DOCS -->

@@ -32,7 +32,7 @@ variable "permissions_boundary" {
 variable "subscribing_queue_arn" {
   type        = string
   description = "If the lambda subscribes to a queue, use this variable to inform the SQS object arn"
-  default     = ""
+  default     = null
 }
 
 variable "subscribe_to_queue" {
