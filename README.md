@@ -95,6 +95,7 @@ No modules.
 | [aws_iam_role.lambda_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
 | [aws_iam_role_policy_attachment.att_basic_execution](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
 | [aws_iam_role_policy_attachment.att_extra_permissions](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
+| [aws_iam_role_policy_attachment.att_lambda_xray](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
 | [aws_iam_role_policy_attachment.att_sqs_execution](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
 | [aws_iam_role_policy_attachment.att_vpc_execution](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
 | [aws_lambda_event_source_mapping.sqs_event_source_mapping](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_event_source_mapping) | resource |
@@ -106,6 +107,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_enable_logs"></a> [enable\_logs](#input\_enable\_logs) | Enable CloudWatch Logs for the Lambda Function. | `bool` | `false` | no |
+| <a name="input_enable_xray"></a> [enable\_xray](#input\_enable\_xray) | Enable X-Ray tracing for the Lambda function | `bool` | `false` | no |
 | <a name="input_extra_permissions_policy_arns"></a> [extra\_permissions\_policy\_arns](#input\_extra\_permissions\_policy\_arns) | List of policy arns you need to add the function role. Should be used for preexisting policies, not managed by this module. | `set(string)` | `[]` | no |
 | <a name="input_function_description"></a> [function\_description](#input\_function\_description) | Description of what your Lambda Function does. | `string` | n/a | yes |
 | <a name="input_function_ephemeral_storage"></a> [function\_ephemeral\_storage](#input\_function\_ephemeral\_storage) | Size of the /tmp directory in MB available to your Lambda Function. | `number` | `512` | no |
