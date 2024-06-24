@@ -27,4 +27,8 @@ resource "aws_lambda_function" "lambda" {
       subnet_ids         = vpc_config.value.subnet_ids
     }
   }
+
+  tracing_config {
+    mode = var.enable_xray ? "Active" : "PassThrough"
+  }
 }

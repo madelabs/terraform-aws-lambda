@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.2] - 2024-06-24
+
+- Added support to xray tracing.
+
 ## [0.0.1] - 2023-09-23
 
 ### Added
