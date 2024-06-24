@@ -105,3 +105,9 @@ variable "extra_permissions_policy_arns" {
   description = "List of policy arns you need to add the function role. Should be used for preexisting policies, not managed by this module."
   default     = []
 }
+
+variable "enable_xray" {
+  description = "Enable X-Ray tracing for the Lambda function"
+  type        = bool
+  default     = false
+}

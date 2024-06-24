@@ -57,6 +57,12 @@ resource "aws_iam_role_policy_attachment" "att_vpc_execution" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
 }
 
+resource "aws_iam_role_policy_attachment" "att_lambda_xray" {
+  count      = var.enable_xray == true ? 1 : 0
+  role       = aws_iam_role.lambda_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess"
+}
+
 resource "aws_iam_role_policy_attachment" "att_extra_permissions" {
   for_each   = var.extra_permissions_policy_arns
   role       = aws_iam_role.lambda_role.name
