@@ -31,7 +31,7 @@ variable "permissions_boundary" {
 
 variable "subscribing_queue_arn" {
   type        = string
-  description = "If the lambda subscribes to a queue, use this variable to inform the SQS object arn"
+  description = "If the lambda subscribes to a queue, use this variable to inform the SQS object arn."
   default     = null
 }
 
@@ -43,7 +43,7 @@ variable "subscribe_to_queue" {
 
 variable "sqs_batch_size" {
   type        = number
-  description = "In case the lambda subscribes to a queue, refers to the number of messages that Lambda retrieves and processes from an SQS queue in a single invocation. This parameter allows you to control how many messages are processed in a single Lambda function execution"
+  description = "In case the lambda subscribes to a queue, refers to the number of messages that Lambda retrieves and processes from an SQS queue in a single invocation. This parameter allows you to control how many messages are processed in a single Lambda function execution."
   default     = 1
 }
 
@@ -72,13 +72,13 @@ variable "lambda_environment_variables" {
 
 variable "logs_retention_days" {
   type        = number
-  description = "How many days aws should keep the logs of this function"
+  description = "How many days aws should keep the logs of this function."
   default     = 14
 }
 
 variable "lambda_package_type" {
   type        = string
-  description = "Value for package_type in aws_lambda_function resource"
+  description = "Value for package_type in aws_lambda_function resource."
   default     = "Zip"
 }
 
@@ -96,7 +96,7 @@ variable "function_memory" {
 
 variable "function_timeout_seconds" {
   type        = number
-  description = "Amount of time your Lambda Function has to run in seconds"
+  description = "Amount of time your Lambda Function has to run in seconds."
   default     = 10
 }
 
@@ -107,7 +107,7 @@ variable "extra_permissions_policy_arns" {
 }
 
 variable "enable_xray" {
-  description = "Enable X-Ray tracing for the Lambda function"
+  description = "Enable X-Ray tracing for the Lambda function."
   type        = bool
   default     = false
 }
