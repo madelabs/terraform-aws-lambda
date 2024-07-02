@@ -111,3 +111,9 @@ variable "enable_xray" {
   type        = bool
   default     = false
 }
+
+variable "tags" {
+  description = "A map of tags that will be assigned to the lambda resource."
+  type        = map(string)
+  default     = {}
+}
