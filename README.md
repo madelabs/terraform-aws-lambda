@@ -123,6 +123,7 @@ No modules.
 | <a name="input_sqs_batch_size"></a> [sqs\_batch\_size](#input\_sqs\_batch\_size) | In case the lambda subscribes to a queue, refers to the number of messages that Lambda retrieves and processes from an SQS queue in a single invocation. This parameter allows you to control how many messages are processed in a single Lambda function execution. | `number` | `1` | no |
 | <a name="input_subscribe_to_queue"></a> [subscribe\_to\_queue](#input\_subscribe\_to\_queue) | Whether the lambda will subscribe to a queue or not. | `bool` | `false` | no |
 | <a name="input_subscribing_queue_arn"></a> [subscribing\_queue\_arn](#input\_subscribing\_queue\_arn) | If the lambda subscribes to a queue, use this variable to inform the SQS object arn. | `string` | `null` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | A map of tags that will be assigned to the lambda resource. | `map(string)` | `{}` | no |
 | <a name="input_vpc_config"></a> [vpc\_config](#input\_vpc\_config) | VPC configuration for your Lambda Function. | <pre>object({<br>    security_group_ids = list(string)<br>    subnet_ids         = list(string)<br>  })</pre> | `null` | no |
 
 ## Outputs
