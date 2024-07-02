@@ -20,5 +20,5 @@ module "lambda" {
     }
   }
   permissions_boundary = "Boundary role arn"
-  tags = var.tags
+  tags                 = var.tags
 }
