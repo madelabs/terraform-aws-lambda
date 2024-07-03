@@ -1,6 +1,6 @@
 module "lambda" {
   source               = "madelabs/lambda/aws"
-  version              = "0.0.2"
+  version              = "0.0.3"
   function_name        = "hello-world"
   function_description = "Hello World"
   function_handler     = "placeholder::placeholder.Function::FunctionHandler"
@@ -20,4 +20,5 @@ module "lambda" {
     }
   }
   permissions_boundary = "Boundary role arn"
+  tags                 = var.tags
 }

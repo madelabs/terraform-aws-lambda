@@ -31,4 +31,6 @@ resource "aws_lambda_function" "lambda" {
   tracing_config {
     mode = var.enable_xray ? "Active" : "PassThrough"
   }
+
+  tags = var.tags
 }
