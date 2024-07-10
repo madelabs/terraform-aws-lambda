@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.4] - 2024-07-10
+
+- Added support to dotnet8.
+
 ## [0.0.3] - 2024-07-02
 
 - Added support to tags.
