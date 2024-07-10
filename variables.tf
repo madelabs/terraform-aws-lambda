@@ -18,8 +18,8 @@ variable "function_runtime" {
   description = "An object selecting the Lambda runtime and its associated placeholder."
 
   validation {
-    condition     = can(regex("^(dotnet6|nodejs18.x|python3.x)$", var.function_runtime))
-    error_message = "function_runtime must be one of dotnet6, nodejs18.x, or python3.x"
+    condition     = can(regex("^(dotnet6|dotnet8|nodejs18.x|python3.x)$", var.function_runtime))
+    error_message = "function_runtime must be one of dotnet6, dotnet8, nodejs18.x, or python3.x"
   }
 }
 
