@@ -17,11 +17,12 @@ This module will create the lambda and an IAM role that can execute the lambda. 
 
 The table below details the runtimes and versions that are supported by this module.  When chosing a runtime, a placeholder file will also be required.  The table shows these filenames.  The values are placed into the `function_runtime_object` variable.
 
-| Name          | Identifier    | Placeholder Filename      |
-| ---           | ---           | ---                       |
-| Node.js 18    | `nodejs18.x`  | `placeholder-js.zip`      |
-| .NET 6        | `dotnet6`     | `placeholder-csharp.zip`  |
-
+| Name          | Identifier    | Placeholder Filename              |
+| ---           | ---           | ---                               |
+| Node.js 18    | `nodejs18.x`  | `placeholder-js.zip`              |
+| Python 3      | `python3.x`   | `placeholder-python3.zip`         |
+| .NET 6        | `dotnet6`     | `placeholder-csharp-dotnet6.zip`  |
+| .NET 8        | `dotnet8`     | `placeholder-csharp-dotnet8.zip`  |
 ## Usage
 
 Example usage for a C# .NET 6 Lambda
