@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.5] - 2024-08-13
+
+- Adds `invoke_arn` and `function_name` as outputs for the module.
+
 ## [0.0.4] - 2024-07-10
 
 - Added support to dotnet8.

@@ -131,6 +131,8 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_function_name"></a> [function\_name](#output\_function\_name) | n/a |
+| <a name="output_invoke_arn"></a> [invoke\_arn](#output\_invoke\_arn) | n/a |
 | <a name="output_lambda_arn"></a> [lambda\_arn](#output\_lambda\_arn) | n/a |
 | <a name="output_lambda_role_arn"></a> [lambda\_role\_arn](#output\_lambda\_role\_arn) | n/a |
 | <a name="output_lambda_role_name"></a> [lambda\_role\_name](#output\_lambda\_role\_name) | n/a |
