@@ -1,16 +1,16 @@
 module "lambda" {
-  source               = "madelabs/lambda/aws"
-  version              = "0.0.3"
+  source = "../"
+  # version              = "0.0.3"
   function_name        = "hello-world"
   function_description = "Hello World"
   function_handler     = "placeholder::placeholder.Function::FunctionHandler"
 
-  function_runtime = "dotnet6"
+  function_runtime = "dotnet8"
   enable_xray      = true
 
   vpc_config = {
-    subnet_ids         = ["subnet-id"]
-    security_group_ids = ["sg-id"]
+    subnet_ids         = ["subnet-03c657c8cd97f307b"]
+    security_group_ids = ["sg-0fb4ba8549e60d174"]
   }
 
   lambda_environment_variables = {
@@ -19,6 +19,6 @@ module "lambda" {
       "TESTBED"                = "true"
     }
   }
-  permissions_boundary = "Boundary role arn"
-  tags                 = var.tags
+  permissions_boundary = "arn:aws:iam::171549778621:policy/Boundary_TFCDeployment"
+  tags                 = { env = "net8" }
 }

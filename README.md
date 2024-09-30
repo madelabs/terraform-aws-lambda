@@ -8,7 +8,7 @@ We're also for hire: [https://www.madelabs.io](https://www.madelabs.io)
 
 <!-- END MadeLabs Header -->
 
-A Terraform module for managing a zip-file based Lambda function.
+A Terraform module for managing a zip-file based Lambda function or a container based Lambda function.
 ![PlantUML model](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/madelabs/terraform-aws-lambda/main/docs/diagram.puml)
 
 This module will create the lambda and an IAM role that can execute the lambda.  It uses a "placeholder" deployment file for initial setup, and then the source code can be updated using the aws cli command `aws lambda update-function-code` to deploy from a separate system.
@@ -75,6 +75,29 @@ Example folder structure:
       /prod
       /uat
 ```
+
+
+<br>
+
+Example usage for a container based Lambda
+```terraform
+
+module "ecr_lambda" {
+  # source = TO BE UPDATED
+  # version = TO BE UPDATED
+  function_description = "Container Function"
+  function_name        = "ecrfunction"
+  enable_logs          = true
+  lambda_package_type = "Image"
+  function_runtime = ""
+  function_handler = ""
+  lambda_image_uri = "99999999999999.dkr.ecr.us-east-1.amazonaws.com/ecr-lambda:latest"
+  function_timeout_seconds      = 45
+}
+```
+
+
+
 
 <!-- BEGIN_TF_DOCS -->
 ## Providers
