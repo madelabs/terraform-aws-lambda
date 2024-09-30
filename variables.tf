@@ -11,13 +11,13 @@ variable "function_description" {
 variable "function_handler" {
   type        = string
   description = "Function entrypoint in your code."
-  default = ""
+  default     = ""
 }
 
 variable "function_runtime" {
   type        = string
   description = "An object selecting the Lambda runtime and its associated placeholder.  Must be: (dotnet6|dotnet8|nodejs18.x|python3.x)"
-  default = ""
+  default     = ""
 }
 
 variable "permissions_boundary" {
