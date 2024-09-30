@@ -15,12 +15,7 @@ variable "function_handler" {
 
 variable "function_runtime" {
   type        = string
-  description = "An object selecting the Lambda runtime and its associated placeholder."
-
-  validation {
-    condition     = can(regex("^(dotnet6|dotnet8|nodejs18.x|python3.x)$", var.function_runtime))
-    error_message = "function_runtime must be one of dotnet6, dotnet8, nodejs18.x, or python3.x"
-  }
+  description = "An object selecting the Lambda runtime and its associated placeholder.  Must be: (dotnet6|dotnet8|nodejs18.x|python3.x)"
 }
 
 variable "permissions_boundary" {
@@ -116,4 +111,10 @@ variable "tags" {
   description = "A map of tags that will be assigned to the lambda resource."
   type        = map(string)
   default     = {}
+}
+
+variable "lambda_image_uri" {
+  type        = string
+  description = "Use this variable when using a container based lambda, this is the string for the image uri"
+  default     = null
 }
