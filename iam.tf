@@ -39,6 +39,26 @@ resource "aws_iam_policy" "lambda_sqs_policy" {
   })
 }
 
+resource "aws_iam_policy" "secret_policy" {
+  count       = var.has_secret ? 1 : 0
+  name        = "${var.function_name}-secret-policy"
+  description = "Policy to allow the function ${var.function_name} to use a secret."
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Action = [
+          "secretsmanager:GetSecretValue",
+        ],
+        Effect   = "Allow",
+        Resource = var.secret_arn,
+      },
+    ],
+  })
+}
+
+
+
 resource "aws_iam_role_policy_attachment" "att_sqs_execution" {
   count      = var.subscribe_to_queue ? 1 : 0
   role       = aws_iam_role.lambda_role.name
