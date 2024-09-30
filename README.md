@@ -116,6 +116,7 @@ No modules.
 |------|------|
 | [aws_cloudwatch_log_group.function_log_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group) | resource |
 | [aws_iam_policy.lambda_sqs_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
+| [aws_iam_policy.secret_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_iam_role.lambda_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
 | [aws_iam_role_policy_attachment.att_basic_execution](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
 | [aws_iam_role_policy_attachment.att_extra_permissions](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
@@ -135,16 +136,18 @@ No modules.
 | <a name="input_extra_permissions_policy_arns"></a> [extra\_permissions\_policy\_arns](#input\_extra\_permissions\_policy\_arns) | List of policy arns you need to add the function role. Should be used for preexisting policies, not managed by this module. | `set(string)` | `[]` | no |
 | <a name="input_function_description"></a> [function\_description](#input\_function\_description) | Description of what your Lambda Function does. | `string` | n/a | yes |
 | <a name="input_function_ephemeral_storage"></a> [function\_ephemeral\_storage](#input\_function\_ephemeral\_storage) | Size of the /tmp directory in MB available to your Lambda Function. | `number` | `512` | no |
-| <a name="input_function_handler"></a> [function\_handler](#input\_function\_handler) | Function entrypoint in your code. | `string` | n/a | yes |
+| <a name="input_function_handler"></a> [function\_handler](#input\_function\_handler) | Function entrypoint in your code. | `string` | `""` | no |
 | <a name="input_function_memory"></a> [function\_memory](#input\_function\_memory) | Amount of memory in MB your Lambda Function can use at runtime. | `number` | `128` | no |
 | <a name="input_function_name"></a> [function\_name](#input\_function\_name) | Unique name for your Lambda Function. | `string` | n/a | yes |
-| <a name="input_function_runtime"></a> [function\_runtime](#input\_function\_runtime) | An object selecting the Lambda runtime and its associated placeholder.  Must be: (dotnet6\|dotnet8\|nodejs18.x\|python3.x) | `string` | n/a | yes |
+| <a name="input_function_runtime"></a> [function\_runtime](#input\_function\_runtime) | An object selecting the Lambda runtime and its associated placeholder.  Must be: (dotnet6\|dotnet8\|nodejs18.x\|python3.x) | `string` | `""` | no |
 | <a name="input_function_timeout_seconds"></a> [function\_timeout\_seconds](#input\_function\_timeout\_seconds) | Amount of time your Lambda Function has to run in seconds. | `number` | `10` | no |
+| <a name="input_has_secret"></a> [has\_secret](#input\_has\_secret) | Whether the lambda will need access to a secret. | `bool` | `false` | no |
 | <a name="input_lambda_environment_variables"></a> [lambda\_environment\_variables](#input\_lambda\_environment\_variables) | Values for environment variables that are accessible from function code during execution. | <pre>object({<br>    variables = map(string)<br>  })</pre> | `null` | no |
 | <a name="input_lambda_image_uri"></a> [lambda\_image\_uri](#input\_lambda\_image\_uri) | Use this variable when using a container based lambda, this is the string for the image uri | `string` | `null` | no |
 | <a name="input_lambda_package_type"></a> [lambda\_package\_type](#input\_lambda\_package\_type) | Value for package\_type in aws\_lambda\_function resource. | `string` | `"Zip"` | no |
 | <a name="input_logs_retention_days"></a> [logs\_retention\_days](#input\_logs\_retention\_days) | How many days aws should keep the logs of this function. | `number` | `14` | no |
 | <a name="input_permissions_boundary"></a> [permissions\_boundary](#input\_permissions\_boundary) | ARN of the policy that is used to set the permissions boundary for the role. | `string` | `""` | no |
+| <a name="input_secret_arn"></a> [secret\_arn](#input\_secret\_arn) | If the lambda uses a secret, use this variable to add the secret arn to the secret policy. | `string` | `null` | no |
 | <a name="input_sqs_batch_size"></a> [sqs\_batch\_size](#input\_sqs\_batch\_size) | In case the lambda subscribes to a queue, refers to the number of messages that Lambda retrieves and processes from an SQS queue in a single invocation. This parameter allows you to control how many messages are processed in a single Lambda function execution. | `number` | `1` | no |
 | <a name="input_subscribe_to_queue"></a> [subscribe\_to\_queue](#input\_subscribe\_to\_queue) | Whether the lambda will subscribe to a queue or not. | `bool` | `false` | no |
 | <a name="input_subscribing_queue_arn"></a> [subscribing\_queue\_arn](#input\_subscribing\_queue\_arn) | If the lambda subscribes to a queue, use this variable to inform the SQS object arn. | `string` | `null` | no |
