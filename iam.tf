@@ -48,9 +48,9 @@ resource "aws_iam_policy" "lambda_ecr_policy" {
     Statement = [
       {
         Action = [
-           "ecr:GetDownloadUrlForLayer",
-           "ecr:BatchGetImage",
-           "ecr:BatchCheckLayerAvailability"
+          "ecr:GetDownloadUrlForLayer",
+          "ecr:BatchGetImage",
+          "ecr:BatchCheckLayerAvailability"
         ],
         Effect   = "Allow",
         Resource = var.ecr_resource_arn,
