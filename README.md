@@ -115,10 +115,12 @@ No modules.
 | Name | Type |
 |------|------|
 | [aws_cloudwatch_log_group.function_log_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group) | resource |
+| [aws_iam_policy.lambda_ecr_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_iam_policy.lambda_secret_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_iam_policy.lambda_sqs_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_iam_role.lambda_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
 | [aws_iam_role_policy_attachment.att_basic_execution](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
+| [aws_iam_role_policy_attachment.att_ecr_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
 | [aws_iam_role_policy_attachment.att_extra_permissions](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
 | [aws_iam_role_policy_attachment.att_lambda_xray](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
 | [aws_iam_role_policy_attachment.att_secret_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
@@ -132,6 +134,8 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_ecr_resource_arn"></a> [ecr\_resource\_arn](#input\_ecr\_resource\_arn) | ECR arn resource for policy | `string` | `null` | no |
+| <a name="input_enable_default_ecr_access"></a> [enable\_default\_ecr\_access](#input\_enable\_default\_ecr\_access) | When using a container lambda create ECR access policy. | `bool` | `false` | no |
 | <a name="input_enable_logs"></a> [enable\_logs](#input\_enable\_logs) | Enable CloudWatch Logs for the Lambda Function. | `bool` | `false` | no |
 | <a name="input_enable_xray"></a> [enable\_xray](#input\_enable\_xray) | Enable X-Ray tracing for the Lambda function. | `bool` | `false` | no |
 | <a name="input_extra_permissions_policy_arns"></a> [extra\_permissions\_policy\_arns](#input\_extra\_permissions\_policy\_arns) | List of policy arns you need to add the function role. Should be used for preexisting policies, not managed by this module. | `set(string)` | `[]` | no |
