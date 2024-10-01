@@ -37,7 +37,11 @@ variable "secret_arn" {
   description = "If the lambda uses a secret, use this variable to add the secret arn to the secret policy."
   default     = null
 }
-
+variable "ecr_resource_arn" {
+  type        = string
+  description = "ECR arn resource for policy"
+  default     = null
+}
 variable "subscribe_to_queue" {
   type        = bool
   description = "Whether the lambda will subscribe to a queue or not."
@@ -49,6 +53,13 @@ variable "has_secret" {
   description = "Whether the lambda will need access to a secret."
   default     = false
 }
+
+variable "enable_default_ecr_access" {
+  type        = bool
+  description = "When using a container lambda create ECR access policy."
+  default     = false
+}
+
 
 variable "sqs_batch_size" {
   type        = number
