@@ -89,8 +89,6 @@ module "ecr_lambda" {
   function_name        = "ecrfunction"
   enable_logs          = true
   lambda_package_type = "Image"
-  function_runtime = ""
-  function_handler = ""
   lambda_image_uri = "99999999999999.dkr.ecr.us-east-1.amazonaws.com/ecr-lambda:latest"
   function_timeout_seconds      = 45
 }

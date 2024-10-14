@@ -54,13 +54,6 @@ variable "has_secret" {
   default     = false
 }
 
-variable "enable_default_ecr_access" {
-  type        = bool
-  description = "When using a container lambda create ECR access policy."
-  default     = false
-}
-
-
 variable "sqs_batch_size" {
   type        = number
   description = "In case the lambda subscribes to a queue, refers to the number of messages that Lambda retrieves and processes from an SQS queue in a single invocation. This parameter allows you to control how many messages are processed in a single Lambda function execution."

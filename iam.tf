@@ -39,27 +39,6 @@ resource "aws_iam_policy" "lambda_sqs_policy" {
   })
 }
 
-resource "aws_iam_policy" "lambda_ecr_policy" {
-  count       = var.enable_default_ecr_access ? 1 : 0
-  name        = "${var.function_name}-ecr-policy"
-  description = "Policy to allow the function ${var.function_name} to access the ECR resource."
-  policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [
-      {
-        Action = [
-          "ecr:GetDownloadUrlForLayer",
-          "ecr:BatchGetImage",
-          "ecr:BatchCheckLayerAvailability"
-        ],
-        Effect   = "Allow",
-        Resource = var.ecr_resource_arn,
-      },
-    ],
-  })
-}
-
-
 
 resource "aws_iam_policy" "lambda_secret_policy" {
   count       = var.has_secret ? 1 : 0
@@ -77,11 +56,6 @@ resource "aws_iam_policy" "lambda_secret_policy" {
       },
     ],
   })
-}
-resource "aws_iam_role_policy_attachment" "att_ecr_policy" {
-  count      = var.enable_default_ecr_access ? 1 : 0
-  role       = aws_iam_role.lambda_role.name
-  policy_arn = aws_iam_policy.lambda_ecr_policy[0].arn
 }
 
 resource "aws_iam_role_policy_attachment" "att_secret_policy" {
