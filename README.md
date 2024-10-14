@@ -82,12 +82,12 @@ Example usage for a container based Lambda
 module "ecr_lambda" {
   # source = TO BE UPDATED
   # version = TO BE UPDATED
-  function_description = "Container Function"
-  function_name        = "ecrfunction"
-  enable_logs          = true
-  lambda_package_type = "Image"
-  lambda_image_uri = "99999999999999.dkr.ecr.us-east-1.amazonaws.com/ecr-lambda:latest"
-  function_timeout_seconds      = 45
+  function_description     = "Container Function"
+  function_name            = "ecrfunction"
+  enable_logs              = true
+  lambda_package_type      = "Image"
+  lambda_image_uri         = "99999999999999.dkr.ecr.us-east-1.amazonaws.com/ecr-lambda:latest"
+  function_timeout_seconds = 45
 }
 ```
 

@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.6] - 2024-10-14
+
+- Added `ecr_resource_arn` `lambda_image_uri` for adding ecr functionality
+- Added `secret_arn` `has_secret`  for adding a simple secret policy
+
 ## [0.0.5] - 2024-08-13
 
 - Adds `invoke_arn` and `function_name` as outputs for the module.
