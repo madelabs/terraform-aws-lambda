@@ -36,10 +36,7 @@ module "my-lambda" {
   function_name        = "name-of-lambda"
   function_description = "Lambda's purpose and description"
   function_handler     = "placeholder::placeholder.Function::FunctionHandler"
-  function_runtime_object = {
-    runtime              = "dotnet6"
-    placeholder_filename = "placeholder-csharp.zip"
-  }
+  function_runtime     =  "dotnet6"
 }
 ```
 
