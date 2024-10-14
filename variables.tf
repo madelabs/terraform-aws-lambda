@@ -11,16 +11,13 @@ variable "function_description" {
 variable "function_handler" {
   type        = string
   description = "Function entrypoint in your code."
+  default     = ""
 }
 
 variable "function_runtime" {
   type        = string
-  description = "An object selecting the Lambda runtime and its associated placeholder."
-
-  validation {
-    condition     = can(regex("^(dotnet6|dotnet8|nodejs18.x|python3.x)$", var.function_runtime))
-    error_message = "function_runtime must be one of dotnet6, dotnet8, nodejs18.x, or python3.x"
-  }
+  description = "An object selecting the Lambda runtime and its associated placeholder.  Must be: (dotnet6|dotnet8|nodejs18.x|python3.x)"
+  default     = ""
 }
 
 variable "permissions_boundary" {
@@ -35,9 +32,25 @@ variable "subscribing_queue_arn" {
   default     = null
 }
 
+variable "secret_arn" {
+  type        = string
+  description = "If the lambda uses a secret, use this variable to add the secret arn to the secret policy."
+  default     = null
+}
+variable "ecr_resource_arn" {
+  type        = string
+  description = "ECR arn resource for policy"
+  default     = null
+}
 variable "subscribe_to_queue" {
   type        = bool
   description = "Whether the lambda will subscribe to a queue or not."
+  default     = false
+}
+
+variable "has_secret" {
+  type        = bool
+  description = "Whether the lambda will need access to a secret."
   default     = false
 }
 
@@ -116,4 +129,10 @@ variable "tags" {
   description = "A map of tags that will be assigned to the lambda resource."
   type        = map(string)
   default     = {}
+}
+
+variable "lambda_image_uri" {
+  type        = string
+  description = "Use this variable when using a container based lambda, this is the string for the image uri"
+  default     = null
 }

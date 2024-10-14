@@ -2,12 +2,14 @@ resource "aws_lambda_function" "lambda" {
   function_name = var.function_name
   role          = aws_iam_role.lambda_role.arn
   description   = var.function_description
-  runtime       = var.function_runtime
-  handler       = var.function_handler
+  handler       = var.lambda_package_type != "Image" ? var.function_handler : null
   package_type  = var.lambda_package_type
-  filename      = "${path.module}/placeholders/${local.placeholder}"
+  filename      = var.lambda_package_type != "Image" && local.placeholder != null ? "${path.module}/placeholders/${local.placeholder}" : null
   memory_size   = var.function_memory
   timeout       = var.function_timeout_seconds
+  runtime       = var.lambda_package_type != "Image" ? var.function_runtime : null
+  image_uri     = var.lambda_package_type == "Image" ? var.lambda_image_uri : null
+
 
   ephemeral_storage {
     size = var.function_ephemeral_storage
